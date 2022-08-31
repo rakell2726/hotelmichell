@@ -27,4 +27,4 @@ rutas.put('/viajescomfama/v1/habitacion/:id',controladorHabitacion.editarHabitac
 rutas.get('/viajescomfama/v1/reserva',controladorReserva.buscarReserva)
 rutas.get('/viajescomfama/v1/reserva/:id',controladorReserva.buscarReservaPorId)
 rutas.post('/viajescomfama/v1/reserva',controladorReserva.agregarReserva)
-rutas.put('/viajescomfama/v1/resereva/:id',controladorReserva.editarReserva)
+rutas.put('/viajescomfama/v1/reserva/:id',controladorReserva.editarReserva)
