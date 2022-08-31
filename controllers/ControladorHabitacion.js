@@ -9,7 +9,7 @@ export class ControladorHabitacion{
     async buscarHabitaciones(request,response){
 
         //llsmo sl servicio
-        let servicioHabitacion=new servicioHabitacion()
+        let servicioHabitacion=new ServicioHabitacion()
 
         //Intento resolver la PETICION
         try{
@@ -30,7 +30,7 @@ export class ControladorHabitacion{
         let identificador=request.params.id
         
          //llsmo sl servicio
-         let servicioHabitacion=new servicioHabitacion()
+         let servicioHabitacion=new ServicioHabitacion()
         try{
             response.status(200).json({
                 mensaje:"exito en la consulta "+identificador,
@@ -50,7 +50,7 @@ export class ControladorHabitacion{
         let cuerpo=request.body
 
          //llsmo sl servicio
-         let servicioHabitacion=new servicioHabitacion()
+         let servicioHabitacion=new ServicioHabitacion()
     
         try{
             await servicioHabitacion.agregar(cuerpo)
@@ -76,7 +76,7 @@ export class ControladorHabitacion{
         let datos=request.body
 
          //llsmo sl servicio
-         let servicioHabitacion=new servicioHabitacion()
+         let servicioHabitacion=new ServicioHabitacion()
 
         try{
             await servicioHabitacion.actualizar(id,datos)
