@@ -11,6 +11,7 @@ export class ServicioReserva{
 
         async buscarPorId(id){
             let reserva=await modeloReserva.findById
+            return reserva
         }
 
         async agregar(datos){
