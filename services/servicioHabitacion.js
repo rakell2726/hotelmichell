@@ -11,6 +11,7 @@ export class ServicioHabitacion{
 
         async buscarPorId(id){
             let habitacion=await modeloHabitacion.findById
+            return habitacion
         }
 
         async agregar(datos){
