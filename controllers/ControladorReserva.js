@@ -1,21 +1,21 @@
-import{ServicioHabitacion} from '../services/servicioHabitacion.js'
+import{ServicioReserva} from '../services/servicioReserva.js'
 
 export class ControladorReserva{
 
 
     constructor(){}
 
-    //buscar habitaciones
-    buscarHabitaciones(request,response){
+    //buscar reserva
+    buscarReserva(request,response){
 
         //llsmo sl servicio
-        let servicioHabitacion=new servicioHabitacion()
+        let servicioReserva=new servicioReserva()
 
         //Intento resolver la PETICION
         try{
            response.status(200).json({
             mensaje:"exito en la consulta",
-            datos:servicioHabitacion.buscarTodas()
+            datos:servicioReserva.buscarTodas()
            }) 
         }catch(error){ //FALLO RESOLVIENDO LA PETICION
             response(400).json({
@@ -25,16 +25,16 @@ export class ControladorReserva{
         }
     }
 
-    //buscar habitacion por id
-    buscarHabitacionPorId(request,response){
+    //buscar RESERVA por id
+    buscarReservaPorId(request,response){
         let identificador=request.params.id
         
          //llsmo sl servicio
-         let servicioHabitacion=new servicioHabitacion()
+         let servicioReserva=new servicioReserva()
         try{
             response.status(200).json({
                 mensaje:"exito en la consulta "+identificador,
-                datos: servicioHabitacion.buscarPorId(identificador)
+                datos: servicioReserva.buscarPorId(identificador)
 
             })   
          }catch(error){ //FALLO RESOLVIENDO LA PETICION
@@ -45,17 +45,17 @@ export class ControladorReserva{
          }
     }
 
-    //agregar habitacion
-    agregarHabitacion(request,response){
+    //agregar reserva
+    agregarReserva(request,response){
         let cuerpo=request.body
 
          //llsmo sl servicio
-         let servicioHabitacion=new servicioHabitacion()
+         let servicioReserva=new ServicioReserva()
     
         try{
-            servicioHabitacion.agregar(cuerpo)
+            servicioReserva.agregar(cuerpo)
             response.status(200).json({
-                mensaje:"exito agregando la habitacion",
+                mensaje:"exito agregando la reserva",
                 datos:null
             }) 
          }catch(error){ //FALLO RESOLVIENDO LA PETICION
@@ -66,8 +66,8 @@ export class ControladorReserva{
          }
     }
 
-    //editar habitacion
-    editarHabitacion(request,response){
+    //editar reserva
+    editarReserva(request,response){
 
         //recibir id como parametro
         let id=request.params.id
@@ -76,12 +76,12 @@ export class ControladorReserva{
         let datos=request.body
 
          //llsmo sl servicio
-         let servicioHabitacion=new servicioHabitacion()
+         let servicioReserva=new servicioReserva()
 
         try{
-            servicioHabitacion.actualizar(id,datos)
+            ServicioReserva.actualizar(id,datos)
             response.status(200).json({
-                mensaje:"exito editando la habitacion",
+                mensaje:"exito editando la reserva",
                 datos:null
             }) 
          }catch(error){ //FALLO RESOLVIENDO LA PETICION
@@ -94,7 +94,7 @@ export class ControladorReserva{
     }
 
     //eliminar habitacion
-    eliminarHabitacion(request,response){
+    eliminarReserva(request,response){
         try{
             response.status(200).json({}) 
          }catch(error){ //FALLO RESOLVIENDO LA PETICION

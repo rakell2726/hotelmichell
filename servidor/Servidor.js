@@ -31,6 +31,6 @@ export class Servidor{
         })
     }
     conectarConBD(){
-        conectar
+        conectar()
     }
 }

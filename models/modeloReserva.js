@@ -32,4 +32,4 @@ const Reserva=new Schema({
     }
 })
 //crear una constante en base al esquema
-const modeloReserva=mongoose.model('reserva', Reserva)
+export const modeloReserva=mongoose.model('reserva', Reserva)

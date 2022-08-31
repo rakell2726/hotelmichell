@@ -3,7 +3,9 @@ import express from 'express'
 //IMPORTAR EL CONTROLADOR DE HABITACIONES
 import {ControladorHabitacion} from '../controllers/ControladorHabitacion.js'
 import { ControladorReserva } from '../controllers/ControladorReserva.js'
+
 let controladorHabitacion=new ControladorHabitacion()
+let controladorReserva=new ControladorReserva()
 
 //variable para personalizar las rutas (ENDPOINTS) de mis servicios
 export let rutas=express.Router()
@@ -22,7 +24,7 @@ rutas.put('/viajescomfama/v1/habitacion/:id',controladorHabitacion.editarHabitac
 
 
 //ENDPOINTS PARA LOS SERVICIOS ASOCIADOS A LAS RESERVAS
-rutas.get('/viajescomfama/v1/habitaciones',ControladorReserva.buscarHabitaciones)
-rutas.get('/viajescomfama/v1/habitacion/:id',ControladorReserva.buscarHabitacionPorId)
-rutas.post('/viajescomfama/v1/habitacion',ControladorReserva.agregarHabitacion)
-rutas.put('/viajescomfama/v1/habitacion/:id',ControladorReserva.editarHabitacion)
+rutas.get('/viajescomfama/v1/reserva',controladorReserva.buscarReserva)
+rutas.get('/viajescomfama/v1/reserva/:id',controladorReserva.buscarReservaPorId)
+rutas.post('/viajescomfama/v1/reserva',controladorReserva.agregarReserva)
+rutas.put('/viajescomfama/v1/resereva/:id',controladorReserva.editarReserva)
