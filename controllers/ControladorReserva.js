@@ -6,7 +6,7 @@ export class ControladorReserva{
     constructor(){}
 
     //buscar reserva
-    buscarReserva(request,response){
+    async buscarReserva(request,response){
 
         //llsmo sl servicio
         let servicioReserva=new servicioReserva()
@@ -15,7 +15,7 @@ export class ControladorReserva{
         try{
            response.status(200).json({
             mensaje:"exito en la consulta",
-            datos:servicioReserva.buscarTodas()
+            datos:await servicioReserva.buscarTodas()
            }) 
         }catch(error){ //FALLO RESOLVIENDO LA PETICION
             response(400).json({
@@ -26,7 +26,7 @@ export class ControladorReserva{
     }
 
     //buscar RESERVA por id
-    buscarReservaPorId(request,response){
+    async buscarReservaPorId(request,response){
         let identificador=request.params.id
         
          //llsmo sl servicio
@@ -34,7 +34,7 @@ export class ControladorReserva{
         try{
             response.status(200).json({
                 mensaje:"exito en la consulta "+identificador,
-                datos: servicioReserva.buscarPorId(identificador)
+                datos: await servicioReserva.buscarPorId(identificador)
 
             })   
          }catch(error){ //FALLO RESOLVIENDO LA PETICION
@@ -46,14 +46,14 @@ export class ControladorReserva{
     }
 
     //agregar reserva
-    agregarReserva(request,response){
+    async agregarReserva(request,response){
         let cuerpo=request.body
 
          //llsmo sl servicio
          let servicioReserva=new ServicioReserva()
     
         try{
-            servicioReserva.agregar(cuerpo)
+            await servicioReserva.agregar(cuerpo)
             response.status(200).json({
                 mensaje:"exito agregando la reserva",
                 datos:null
@@ -67,7 +67,7 @@ export class ControladorReserva{
     }
 
     //editar reserva
-    editarReserva(request,response){
+    async editarReserva(request,response){
 
         //recibir id como parametro
         let id=request.params.id
@@ -79,7 +79,7 @@ export class ControladorReserva{
          let servicioReserva=new servicioReserva()
 
         try{
-            ServicioReserva.actualizar(id,datos)
+            await servicioReserva.actualizar(id,datos)
             response.status(200).json({
                 mensaje:"exito editando la reserva",
                 datos:null
