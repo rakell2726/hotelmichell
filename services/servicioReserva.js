@@ -5,12 +5,12 @@ export class ServicioReserva{
     constructor(){}
 
         async buscarTodas(){
-            let reservas=await modeloReserva.find()
+            let reserva=await modeloReserva.find()
             return reserva
         }
 
         async buscarPorId(id){
-            let reserva=await modeloReserva.findById
+            let reserva=await modeloReserva.findById()
             return reserva
         }
 
