@@ -9,7 +9,7 @@ export class ControladorReserva{
     async buscarReserva(request,response){
 
         //llsmo sl servicio
-        let servicioReserva=new servicioReserva()
+        let servicioReserva=new ServicioReserva()
 
         //Intento resolver la PETICION
         try{
@@ -30,7 +30,7 @@ export class ControladorReserva{
         let identificador=request.params.id
         
          //llsmo sl servicio
-         let servicioReserva=new servicioReserva()
+         let servicioReserva=new ServicioReserva()
         try{
             response.status(200).json({
                 mensaje:"exito en la consulta "+identificador,
@@ -76,7 +76,7 @@ export class ControladorReserva{
         let datos=request.body
 
          //llsmo sl servicio
-         let servicioReserva=new servicioReserva()
+         let servicioReserva=new ServicioReserva()
 
         try{
             await servicioReserva.actualizar(id,datos)

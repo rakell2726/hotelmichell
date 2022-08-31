@@ -4,8 +4,7 @@ import mongoose from "mongoose";
 //esquema de datos de mongoose, el esquema es una regla de datos voy a manipular
 const Schema = mongoose.Schema;
 
-const Reserva=new Schema({
-
+const reserva=new Schema({
     idHabitacion:{
         type:String,
         required:true
@@ -32,4 +31,4 @@ const Reserva=new Schema({
     }
 })
 //crear una constante en base al esquema
-export const modeloReserva=mongoose.model('reserva', Reserva)
+export const modeloReserva=mongoose.model('reserva', reserva)
