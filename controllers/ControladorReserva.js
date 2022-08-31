@@ -6,7 +6,7 @@ export class ControladorReserva{
     constructor(){}
 
     //buscar reserva
-    async buscarReserva(request,response){
+    async buscarReservas(request,response){
 
         //llsmo sl servicio
         let servicioReserva=new ServicioReserva()
