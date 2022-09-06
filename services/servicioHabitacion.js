@@ -10,7 +10,7 @@ export class ServicioHabitacion{
         }
 
         async buscarPorId(id){
-            let habitacion=await modeloHabitacion.findById()
+            let habitacion=await modeloHabitacion.findById(id)
             return habitacion
         }
 
@@ -20,7 +20,7 @@ export class ServicioHabitacion{
         }
 
         async actualizar(id,datos){
-            return modeloHabitacion.findByIdAndUodate(id,datos)
+            return modeloHabitacion.findByIdAndUpdate(id,datos)
 
         }
     

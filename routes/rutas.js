@@ -24,7 +24,9 @@ rutas.put('/viajescomfama/v1/habitacion/:id',controladorHabitacion.editarHabitac
 
 
 //ENDPOINTS PARA LOS SERVICIOS ASOCIADOS A LAS RESERVAS
-rutas.get('/viajescomfama/v1/reservas',controladorReserva.buscarReservas)
-rutas.get('/viajescomfama/v1/reserva/:id',controladorReserva.buscarReservaPorId)
-rutas.post('/viajescomfama/v1/reserva',controladorReserva.agregarReserva)
-rutas.put('/viajescomfama/v1/reserva/:id',controladorReserva.editarReserva)
+rutas.get('/viajescomfama/reservas',controladorReserva.buscarReservas)
+rutas.get('/viajescomfama/reserva/:id',controladorReserva.buscarReservaPorId)
+rutas.post('/viajescomfama/reserva',controladorReserva.agregarReserva)
+rutas.put('/viajescomfama/reserva/:id',controladorReserva.editarReserva)
+rutas.delete('/viajescomfama/reserva/:id',controladorReserva.eliminarReserva)
+

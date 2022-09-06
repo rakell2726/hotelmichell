@@ -18,7 +18,7 @@ export class ControladorReserva{
             datos:await servicioReserva.buscarTodas()
            }) 
         }catch(error){ //FALLO RESOLVIENDO LA PETICION
-            response(400).json({
+            response.status(400).json({
                 mensaje:"fallo en la consulta "+error,
                 datos:null
             })
@@ -38,7 +38,7 @@ export class ControladorReserva{
 
             })   
          }catch(error){ //FALLO RESOLVIENDO LA PETICION
-             response(400).json({
+             response.status(400).json({
                 mensaje:"fallo en la consulta "+error,
                 datos:null
              })
@@ -59,7 +59,7 @@ export class ControladorReserva{
                 datos:null
             }) 
          }catch(error){ //FALLO RESOLVIENDO LA PETICION
-             response(400).json({
+             response.status(400).json({
                 mensaje:"fallo en la consulta "+error,
                 datos:null
              })
@@ -85,7 +85,7 @@ export class ControladorReserva{
                 datos:null
             }) 
          }catch(error){ //FALLO RESOLVIENDO LA PETICION
-             response(400).json({
+             response.status(400).json({
                 mensaje:"fallo en la consulta "+error,
                 datos:null
              })
@@ -94,12 +94,24 @@ export class ControladorReserva{
     }
 
     //eliminar habitacion
-    eliminarReserva(request,response){
+    async eliminarReserva(request,response){
+
+        //recibir id como parametro
+        let id=request.params.id
+
+        //llsmo sl servicio
+         let servicioReserva=new ServicioReserva()
+
         try{
-            response.status(200).json({}) 
+            await servicioReserva.eliminar(id)
+            response.status(200).json({
+                mensaje:"exito la reserva ha sido eliminada",
+                datos:null
+                
+            }) 
          }catch(error){ //FALLO RESOLVIENDO LA PETICION
-             response(400).json({
-                mensaje:"fallo en la consulta "+error,
+             response.status(400).json({
+                mensaje:"Eliminar la reserva no fue posible "+error,
                 datos:null
              })
          }

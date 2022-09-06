@@ -10,18 +10,20 @@ export class ServicioReserva{
         }
 
         async buscarPorId(id){
-            let reserva=await modeloReserva.findById()
+            let reserva=await modeloReserva.findById(id)
             return reserva
         }
 
         async agregar(datos){
             let reservaAguardar=new modeloReserva(datos)
-            return await reservaAguardar.save()
+            return await reservaAguardar.save(datos)
         }
 
         async actualizar(id,datos){
-            return modeloReserva.findByIdAndUodate(id,datos)
-
+            return modeloReserva.findByIdAndUpdate(id,datos)
+        }
+        async eliminar(id){
+            return modeloReserva.findByIdAndDelete(id)
         }
     
 }

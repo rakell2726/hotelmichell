@@ -85,7 +85,7 @@ export class ControladorHabitacion{
                 datos:null
             }) 
          }catch(error){ //FALLO RESOLVIENDO LA PETICION
-             response(400).json({
+             response.status(400).json({
                 mensaje:"fallo en la consulta "+error,
                 datos:null
              })
